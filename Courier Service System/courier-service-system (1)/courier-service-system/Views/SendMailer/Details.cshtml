@@ -1,0 +1,70 @@
+﻿@model CSSEntity.MailModel
+
+@{
+    if (Session["Position"].ToString() == "Admin")
+    {
+        ViewBag.Title = "Inbox";
+        Layout = "~/Views/Shared/_layout_after_login.cshtml";
+    }
+    else if (Session["Position"].ToString() == "Driver")
+    {
+        ViewBag.Title = "Inbox";
+        Layout = "~/Views/Shared/_layout_for_driver.cshtml";
+    }
+    else if (Session["Position"].ToString() == "Manager")
+    {
+        ViewBag.Title = "Inbox";
+        Layout = "~/Views/Shared/_layout_for_manager.cshtml";
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MailModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.From)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.From)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.To)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.To)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Inbox")
+</p>
